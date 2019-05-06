@@ -14,7 +14,7 @@ import localeFr from '@angular/common/locales/fr';
     AppComponent,
     HomeComponent,
     CityWeatherComponent,
-    DetailsComponent
+    DetailsComponent,
   ],
   imports: [
     BrowserModule,

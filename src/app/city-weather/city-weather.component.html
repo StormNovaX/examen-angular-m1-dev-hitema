@@ -1,6 +1,6 @@
 <section routerLink="/detail/{{name}}" class="weather__card">
   <span class="city-name__text">
-    {{ name }}
+   <input (click)="$event.stopPropagation();" (keyup)="onChange($event)"  value="{{name}}">
   </span>
   <div class="weather-icon__container">
     <div [ngSwitch]="condition">
