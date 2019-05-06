@@ -1,10 +1,15 @@
-<section class="weather__card">
+<section routerLink="/detail" class="weather__card">
   <span class="city-name__text">
     {{ name }}
   </span>
   <div class="weather-icon__container">
-    <!-- Add weather icon depending on condition -->
-    <i class="fas fa-10x"></i>
+    <div [ngSwitch]="condition">
+      <i *ngSwitchCase="'storm'" class="fas fa-10x fa-poo-storm"></i>
+      <i *ngSwitchCase="'snow'" class="fas fa-10x fa-snowflake"></i>
+      <i *ngSwitchCase="'clouds'" class="fas fa-10x fa-cloud-sun"></i>
+      <i *ngSwitchCase="'rain'" class="fas fa-10x fa-cloud-rain"></i>
+      <i *ngSwitchCase="'sun'" class="fas fa-10x fa-sun"></i>
+    </div>
   </div>
   <div class="temperature-text__container">
     <span class="temperature__text">{{ currentTemp }}</span>
@@ -16,14 +21,14 @@
       <svg class="min-arrow__icon" viewBox="188.5 807 21 21">
         <path fill="green" d="M209.5 817.5h-21L199 828z" data-name="Min Arrow"/>
       </svg>
-      <span class="min-temperature__text">{{ minTemp }}</span>
+      <span class="min-temperature__text">{{ minTemp | number : '1.1-1' }}</span>
       <span class="min__text">Min</span>
     </div>
     <div class="max__container">
       <svg class="max-arrow__icon" viewBox="449.5 820 21 21">
         <path fill="red" d="M449.5 830.5h21L460 820z" data-name="Max Arrow"/>
       </svg>
-      <span class="max-temperature__text">{{ maxTemp }}</span>
+      <span class="max-temperature__text">{{ maxTemp | number : '1.1-1' }}</span>
       <span class="max__text">Max</span>
     </div>
   </section>

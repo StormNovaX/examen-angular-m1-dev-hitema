@@ -80,13 +80,14 @@ export class WeatherService {
     return this.cities[city].windSpeed;
   }
 
+
   getForecast() {
     const days: DailyForeCast[] = [];
     for (let i = 0; i < 6; i++) {
       days.push({
         condition: getRandomCondition(),
         temp: getRandomTemp(),
-        name: moment().add(i, 'day').format('dddd') 
+        name: moment().add(i, 'day').format('dddd')
       });
     }
     return days;
